@@ -2,9 +2,10 @@
   "name": "multicon",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/rkomiyama/multicon/issues"
   },
-  "homepage": "https://github.com/rkomiyama/multicon#readme"
+  "homepage": "https://github.com/rkomiyama/multicon#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^16.2.0"
+  }
 }
