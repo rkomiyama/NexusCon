@@ -8,7 +8,7 @@ module.exports = {
     'babel-polyfill',
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    './client/index.js'
+    './src/index.js'
   ],
   devtool: 'inline-source-map',
   devServer: {
@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        include: path.resolve(__dirname, 'client'),
+        include: path.resolve(__dirname, 'src'),
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,

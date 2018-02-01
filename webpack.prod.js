@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './client/index.js'
+    './src/index.js'
   ],
   devtool: 'source-map',
   plugins: [
@@ -30,7 +30,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'client'),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           'babel-loader'
