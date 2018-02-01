@@ -1,0 +1,6 @@
+# Ignore generated folders
+node_modules/
+dist/
+
+# Ignore error logs
+npm-debug.log
