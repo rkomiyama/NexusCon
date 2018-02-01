@@ -4,8 +4,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
-    'react-hot-loader/patch',
     './client/index.js'
   ],
   plugins: [
@@ -23,13 +21,21 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          'babel-loader'
-        ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          presets: [
+            'env',
+            'react'
+          ],
+          plugins: [
+            'react-hot-loader/babel'
+          ]
+        }
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         use: [
           'style-loader',
           'css-loader'
