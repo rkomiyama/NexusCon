@@ -3,8 +3,10 @@
     export default class App extends React.Component {
       render() {
         return (
-          <div>
-            Hey sup
+          <div className="container">
+            <section className="header">
+              <h1>MultiCon</h1>
+            </section>
           </div>
         );
       }
