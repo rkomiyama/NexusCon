@@ -4,7 +4,7 @@
       render() {
         return (
           <div>
-            Hey sup dude
+            Hey sup
           </div>
         );
       }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
-import './styles/style.scss';
+import './styles/styles.scss';
 
 const render = (Component) => {
   ReactDOM.render(
