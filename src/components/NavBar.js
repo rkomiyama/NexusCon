@@ -15,17 +15,17 @@ const NavBar = () => (
         </Link>
       </li>
       <li className="navbar__list-item">
-        <Link to="#">
+        <Link to="/activities">
           Activities
         </Link>
       </li>
       <li className="navbar__list-item">
-        <Link to="#">
+        <Link to="/guests">
           Guests
         </Link>
       </li>
       <li className="navbar__list-item">
-        <Link to="#">
+        <Link to="/registration">
           Registration
         </Link>
       </li>
