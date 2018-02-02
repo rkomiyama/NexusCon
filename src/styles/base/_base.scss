@@ -1,2 +1,14 @@
 @import 'normalize';
 @import 'skeleton';
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 50rem;
+}
