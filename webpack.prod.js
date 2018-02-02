@@ -39,8 +39,30 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
-          'css-loader'
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            query: {
+              sourceMap: true,
+              minimize: true,
+              importLoaders: 2,
+            }
+          },
+          {
+            loader: 'sass-loader',
+            query: {
+              sourceMap: true,
+              sourceMapContents: true,
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            query: {
+              sourceMap: true,
+            },
+          }
         ]
       },
       {

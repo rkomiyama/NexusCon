@@ -73,6 +73,12 @@ module.exports = {
               sourceMap: true,
               sourceMapContents: true,
             }
+          },
+          {
+            loader: 'postcss-loader',
+            query: {
+              sourceMap: true,
+            },
           }
         ]
       },
