@@ -1,0 +1,32 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.navbar__list {
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  list-style-type: none;
+  align-items: center;
+
+  a {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 0;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+
+.navbar__list-item {
+  flex-grow: 1;
+  text-align: center;
+  transition: 500ms;
+
+  &:hover {
+    background-color: #deedf7;
+    transition: 200ms;
+  }
+}
