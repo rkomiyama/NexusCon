@@ -1,12 +1,16 @@
 import React from 'react';
+import Media from 'react-media';
 import Header from '../Header';
 import NavBar from '../NavBar';
+import NavBurger from '../NavBurger';
 
 const AboutPage = () => (
   <div className="aboutPage">
     <Header />
-    <NavBar />
-    <section className="aboutPage-content">
+    <Media query="(max-width: 550px)">
+      {(matches) => matches ? <NavBurger /> : <NavBar />}
+    </Media>
+    <section className="aboutPage-content container">
       <p>
         Stuff and such for what MultiCon is all about.
       </p>
