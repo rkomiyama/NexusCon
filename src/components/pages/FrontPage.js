@@ -1,12 +1,16 @@
 import React from 'react';
+import Media from 'react-media';
 import Header from '../Header';
 import NavBar from '../NavBar';
+import NavBurger from '../NavBurger';
 
 const FrontPage = () => (
   <div className="frontPage">
     <Header />
-    <NavBar />
-    <section className="frontPage-content">
+    <Media query="(max-width: 550px)">
+      {(matches) => matches ? <NavBurger /> : <NavBar />}
+    </Media>
+    <section className="frontPage-content container">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in pharetra massa, vitae lacinia quam. In tempor tempus quam. Donec in tempor magna. Fusce tempor tempus efficitur. Nullam commodo mauris turpis, a mollis ligula vulputate quis. Nunc sit amet erat at metus accumsan faucibus. Fusce ac convallis tellus, non fringilla tellus. Integer eleifend dolor in justo ornare aliquam. Mauris turpis magna, porttitor vitae lacinia nec, lacinia eget quam.
       </p>

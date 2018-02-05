@@ -1,13 +1,14 @@
 .navbar {
   position: sticky;
   top: 0;
-  background-color: white;
+  z-index: 1;
+  margin-bottom: 2rem;
+  background-color: #ededed;
 }
 
 .navbar__list {
   display: flex;
   padding: 0;
-  margin: 0 auto;
   list-style-type: none;
   align-items: center;
 
@@ -22,6 +23,7 @@
 
 .navbar__list-item {
   flex-grow: 1;
+  margin: 0;
   text-align: center;
   transition: 500ms;
 

@@ -11,7 +11,7 @@ export default class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div>
           <Route exact path='/' component={FrontPage} />
           <Route path='/about' component={AboutPage} />
           <Route path='/activities' component={ActivitiesPage} />
