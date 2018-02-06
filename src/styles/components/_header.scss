@@ -1,8 +1,15 @@
 .header {
   padding-top: 18rem;
+  background-size: 100% 100%;
 
   @media (max-width: 550px) {
     padding-top: 6rem;
     margin-top: 0;
+    margin-bottom: 2rem;
   }
+}
+
+.header__heading {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
