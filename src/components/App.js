@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import FrontPage from './pages/FrontPage';
 import AboutPage from './pages/AboutPage';
@@ -10,7 +10,7 @@ import RegistrationPage from './pages/RegistrationPage';
 export default class App extends React.Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <Route exact path='/' component={FrontPage} />
           <Route path='/about' component={AboutPage} />
@@ -18,7 +18,7 @@ export default class App extends React.Component {
           <Route path='/guests' component={GuestsPage} />
           <Route path='/registration' component={RegistrationPage} />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
