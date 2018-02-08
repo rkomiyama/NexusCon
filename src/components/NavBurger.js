@@ -19,61 +19,31 @@ const NavBurger = () => {
           <span></span>
           <span></span>
           <ul className="navburger__list u-full-width">
-            <li className="navburger__list-item">
-              <Link to="/">
+            <Link to="/">
+              <li className="navburger__list-item">
                 Home
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/about">
+              </li>
+            </Link>
+            <Link to="/about">
+              <li className="navburger__list-item">
                 About Us
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/activities">
+              </li>
+            </Link>
+            <Link to="/activities">
+              <li className="navburger__list-item">
                 Activities
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/guests">
+              </li>
+            </Link>
+            <Link to="/guests">
+              <li className="navburger__list-item">
                 Guests
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/registration">
+              </li>
+            </Link>
+            <Link to="/registration">
+              <li className="navburger__list-item">
                 Registration
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/activities">
-                Activities
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/guests">
-                Guests
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/registration">
-                Registration
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/activities">
-                Activities
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/guests">
-                Guests
-              </Link>
-            </li>
-            <li className="navburger__list-item">
-              <Link to="/registration">
-                Registration
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="navburger__list-header"></div>
