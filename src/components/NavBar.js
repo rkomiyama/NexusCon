@@ -1,34 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import siteMap from '../../siteMap';
 
 const NavBar = () => (
   <nav className="navbar">
     <ul className="navbar__list container">
-      <li className="navbar__list-item">
-        <Link to="/">
-          Home
-        </Link>
-      </li>
-      <li className="navbar__list-item">
-        <Link to="/about">
-          About Us
-        </Link>
-      </li>
-      <li className="navbar__list-item">
-        <Link to="/activities">
-          Activities
-        </Link>
-      </li>
-      <li className="navbar__list-item">
-        <Link to="/guests">
-          Guests
-        </Link>
-      </li>
-      <li className="navbar__list-item">
-        <Link to="/registration">
-          Registration
-        </Link>
-      </li>
+      {siteMap.routes.map((route, i) => {
+        return (
+          <li className="navbar__list-item" key={i}>
+            <Link to={route.link}>
+              {route.title}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   </nav>
 );
