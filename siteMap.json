@@ -1,0 +1,42 @@
+{
+  "routes": [
+    {
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "title": "About Us",
+      "link": "/about"
+    },
+    {
+      "title": "Activities",
+      "link": "/activities"
+    },
+    {
+      "title": "Guests",
+      "link": "/guests"
+    },
+    {
+      "title": "Registration",
+      "link": "/registration"
+    },
+    {
+      "title": "More ->",
+      "link": "#",
+      "children": [
+        {
+          "title": "Hey",
+          "link": "/hey"
+        },
+        {
+          "title": "Sup",
+          "link": "/sup"
+        },
+        {
+          "title": "Yo",
+          "link": "/yo"
+        }
+      ]
+    }
+  ]
+}

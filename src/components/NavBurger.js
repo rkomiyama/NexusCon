@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import siteMap from '../../siteMap';
 
 const NavBurger = () => {
   const toggleBodyScrollLock = () => {
@@ -13,40 +14,24 @@ const NavBurger = () => {
   return (
     <nav className="navburger">
       <div id="menuToggle">
+        <div className="navburger__list-header"></div>
         <div>
           <input id="menuCheckbox" type="checkbox" onClick={toggleBodyScrollLock} />
           <span></span>
           <span></span>
           <span></span>
           <ul className="navburger__list u-full-width">
-            <Link to="/">
-              <li className="navburger__list-item">
-                Home
-              </li>
-            </Link>
-            <Link to="/about">
-              <li className="navburger__list-item">
-                About Us
-              </li>
-            </Link>
-            <Link to="/activities">
-              <li className="navburger__list-item">
-                Activities
-              </li>
-            </Link>
-            <Link to="/guests">
-              <li className="navburger__list-item">
-                Guests
-              </li>
-            </Link>
-            <Link to="/registration">
-              <li className="navburger__list-item">
-                Registration
-              </li>
-            </Link>
+            {siteMap.routes.map((route, i) => {
+              return (
+                <li className="navburger__list-item" key={i}>
+                  <Link to={route.link}>
+                    {route.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
-        <div className="navburger__list-header"></div>
       </div>
     </nav>
   );
