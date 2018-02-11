@@ -40,6 +40,11 @@ export default class NavBurger extends React.Component {
                   return (
                     <li className="navburger__list-item navburger__list-item--parent u-full-width" key={i}>
                       <ul className="navburger__sub u-full-width">
+                        <li className="navburger__sub-item">
+                          <Link to="#" onClick={() => this.goBack(i)}>
+                            Back
+                          </Link>
+                        </li>
                         {route.children.map((childRoute, i) => {
                           return (
                             <li className="navburger__sub-item" key={i}>
@@ -72,8 +77,19 @@ export default class NavBurger extends React.Component {
     );
   }
 
+  goBack = (index) => {
+    let subMenu = document.getElementsByClassName('navburger__sub')[this.state.parents[index]];
+    subMenu.style.visibility = 'hidden';
+    let items = document.getElementsByClassName('navburger__list-item');
+    for(let i = 0; i < items.length; i++) {
+      items[i].style.position = 'relative';
+      items[i].style.transform = 'translate(0)';
+    }
+    let mainMenu = document.getElementsByClassName('navburger__list')[0];
+    mainMenu.style.visibility = 'visible';
+  }
+
   toggleSubMenuOn = (index) => {
-    let mainMenu = document.getElementsByClassName('navburger__list-item')[0];
     let items = document.getElementsByClassName('navburger__list-item');
     for(let i = 0; i < items.length; i++) {
       items[i].style.position = 'absolute';
@@ -81,6 +97,8 @@ export default class NavBurger extends React.Component {
     }
     let subMenu = document.getElementsByClassName('navburger__sub')[this.state.parents[index]];
     subMenu.style.visibility = 'visible';
+    let mainMenu = document.getElementsByClassName('navburger__list')[0];
+    mainMenu.style.visibility = 'hidden';
   }
 
   toggleBodyScrollLock = () => {

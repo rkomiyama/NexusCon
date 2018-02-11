@@ -14,8 +14,6 @@
 }
 
 .navburger__list {
-  transform-origin: 0% 0%;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   margin: 0;
   padding: 0;
   overflow-y: scroll;
@@ -48,7 +46,6 @@
   top: 0;
   left: 100%;
   visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   margin: 0;
   padding: 0;
 
