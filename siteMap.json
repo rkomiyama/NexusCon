@@ -9,6 +9,20 @@
       "link": "/about"
     },
     {
+      "title": "More ->",
+      "link": "#",
+      "children": [
+        {
+          "title": "Ayyy",
+          "link": "/ayyy"
+        },
+        {
+          "title": "Yooo",
+          "link": "/yooo"
+        }
+      ]
+    },
+    {
       "title": "Activities",
       "link": "/activities"
     },
