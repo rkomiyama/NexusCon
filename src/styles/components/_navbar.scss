@@ -21,12 +21,38 @@
   }
 }
 
-.navbar__list-item {
+.navbar__list-item,
+.navbar__list-item--parent {
   flex-grow: 1;
   margin: 0;
   text-align: center;
   transition: 500ms;
 
+  &:hover {
+    background-color: #aa231f;
+    transition: 200ms;
+
+    .navbar__sub {
+      visibility: visible;
+    }
+  }
+}
+
+.navbar__list-item--parent {
+  position: relative;
+}
+
+.navbar__sub {
+  position: absolute;
+  top: 100%;
+  margin: 0;
+  visibility: hidden;
+  list-style-type: none;
+  background-color: #ededed;
+}
+
+.navbar__sub-item {
+  margin: 0;
   &:hover {
     background-color: #aa231f;
     transition: 200ms;
