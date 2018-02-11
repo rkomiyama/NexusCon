@@ -36,9 +36,9 @@ export default class NavBurger extends React.Component {
           <div className="navburger__list-wrapper u-full-width">
             <ul className="navburger__list">
               {siteMap.routes.map((route, i) => {
-                if (route.children) {
-                  return (
-                    <li className="navburger__list-item navburger__list-item--parent u-full-width" key={i}>
+                return (
+                  <li className="navburger__list-item u-full-width" key={i}>
+                    {route.children &&
                       <ul className="navburger__sub u-full-width">
                         <li className="navburger__sub-item">
                           <Link to="#" onClick={() => this.goBack(i)}>
@@ -55,20 +55,12 @@ export default class NavBurger extends React.Component {
                           );
                         })}
                       </ul>
-                      <Link to={route.link} onClick={() => this.toggleSubMenuOn(i)}>
-                        {route.title}
-                      </Link>
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li className="navburger__list-item u-full-width" key={i}>
-                      <Link to={route.link}>
-                        {route.title}
-                      </Link>
-                    </li>
-                  );
-                }
+                    }
+                    <Link to={route.link} onClick={() => {route.children && this.toggleSubMenuOn(i)}}>
+                      {route.title}
+                    </Link>
+                  </li>
+                );
               })}
             </ul>
           </div>
