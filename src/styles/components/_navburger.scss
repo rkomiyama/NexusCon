@@ -26,7 +26,6 @@
 .navburger__list-item {
   position: relative;
   margin: 0;
-  padding: 1rem 0;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   font-size: 22px;
   background-color: #343334;
@@ -56,10 +55,16 @@
 
 .navburger__sub-item {
   margin: 0;
-  padding: 1rem 0;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   font-size: 22px;
   background-color: #343334;
+}
+
+.navburger__list-link,
+.navburger__sub-link {
+  display: inline-block;
+  padding: 1rem 100% 1rem 2rem;
+  white-space: nowrap;
 }
 
 #menuToggle {
@@ -88,6 +93,7 @@
 
 #menuToggle span {
   position: relative;
+  left: 22px;
   display: block;
   width: 33px;
   height: 4px;
