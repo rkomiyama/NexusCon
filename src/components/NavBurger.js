@@ -41,14 +41,19 @@ export default class NavBurger extends React.Component {
                     {route.children &&
                       <ul className="navburger__sub u-full-width">
                         <li className="navburger__sub-item">
-                          <Link to="#" onClick={() => this.goBack(i)}>
+                          <Link
+                            to="#"
+                            onClick={() => this.goBack(i)}
+                            className="navburger__sub-link">
                             Back
                           </Link>
                         </li>
                         {route.children.map((childRoute, i) => {
                           return (
                             <li className="navburger__sub-item" key={i}>
-                              <Link to={childRoute.link}>
+                              <Link
+                                to={childRoute.link}
+                                className="navburger__sub-link">
                                 {childRoute.title}
                               </Link>
                             </li>
@@ -56,7 +61,10 @@ export default class NavBurger extends React.Component {
                         })}
                       </ul>
                     }
-                    <Link to={route.link} onClick={() => {route.children && this.toggleSubMenuOn(i)}}>
+                    <Link
+                      to={route.link}
+                      onClick={() => {route.children && this.toggleSubMenuOn(i)}}
+                      className="navburger__list-link">
                       {route.title}
                     </Link>
                   </li>

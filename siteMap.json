@@ -14,11 +14,11 @@
       "children": [
         {
           "title": "Ayyy",
-          "link": "/ayyy"
+          "link": "#"
         },
         {
           "title": "Yooo",
-          "link": "/yooo"
+          "link": "#"
         }
       ]
     },
@@ -40,15 +40,15 @@
       "children": [
         {
           "title": "Hey",
-          "link": "/hey"
+          "link": "#"
         },
         {
           "title": "Sup",
-          "link": "/sup"
+          "link": "#"
         },
         {
           "title": "Yo",
-          "link": "/yo"
+          "link": "#"
         }
       ]
     }
