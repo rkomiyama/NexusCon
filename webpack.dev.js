@@ -46,10 +46,12 @@ module.exports = {
                 }
               }
             ],
-            'react'
+            'react',
+            'stage-0'
           ],
           plugins: [
-            'react-hot-loader/babel'
+            'react-hot-loader/babel',
+            'transform-class-properties'
           ]
         }
       },
