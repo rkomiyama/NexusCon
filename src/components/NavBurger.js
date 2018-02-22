@@ -7,21 +7,20 @@ export default class NavBurger extends React.Component {
     super(props);
 
     this.state = {
-      parents: {}
+      parents: []
     };
   }
 
-  componentWillMount() {
-    let parents = {};
-    let length = 0;
-    siteMap.routes.map((route, i) => {
+  componentDidMount() {
+    let parents = [];
+
+    siteMap.routes.map((route, idx) => {
       if (route.children) {
-        parents[i] = length++;
+        parents.push(idx);
       }
     });
-    if (length > 0) {
-      this.setState({ parents });
-    }
+
+    this.setState({ parents });
   }
 
   render () {
@@ -35,38 +34,31 @@ export default class NavBurger extends React.Component {
           <span></span>
           <div className="navburger__list-wrapper u-full-width">
             <ul className="navburger__list">
-              {siteMap.routes.map((route, i) => {
+              {siteMap.routes.map((route, idx) => {
                 return (
-                  <li className="navburger__list-item u-full-width" key={i}>
-                    {route.children &&
-                      <ul className="navburger__sub u-full-width">
-                        <li className="navburger__sub-item">
-                          <Link
-                            to="#"
-                            onClick={() => this.goBack(i)}
-                            className="navburger__sub-link">
-                            Back
-                          </Link>
-                        </li>
-                        {route.children.map((childRoute, i) => {
-                          return (
-                            <li className="navburger__sub-item" key={i}>
-                              <Link
-                                to={childRoute.link}
-                                className="navburger__sub-link">
-                                {childRoute.title}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    }
+                  <li className="navburger__list-item u-full-width" key={idx}>
                     <Link
                       to={route.link}
-                      onClick={() => {route.children && this.toggleSubMenuOn(i)}}
+                      onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock()}}
                       className="navburger__list-link">
                       {route.title}
                     </Link>
+                    {route.children &&
+                    <ul className="navburger__sub navburger__sub--hide u-full-width">
+                      {route.children.map((childRoute, i) => {
+                        return (
+                          <li className="navburger__sub-item" key={i}>
+                            <Link
+                              to={childRoute.link}
+                              onClick={this.turnOffBodyScrollLock}
+                              className="navburger__sub-link">
+                              {childRoute.title}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    }
                   </li>
                 );
               })}
@@ -77,35 +69,25 @@ export default class NavBurger extends React.Component {
     );
   }
 
-  goBack = (index) => {
-    let subMenu = document.getElementsByClassName('navburger__sub')[this.state.parents[index]];
-    subMenu.style.visibility = 'hidden';
-    let items = document.getElementsByClassName('navburger__list-item');
-    for(let i = 0; i < items.length; i++) {
-      items[i].style.position = 'relative';
-      items[i].style.transform = 'translate(0)';
+  toggleSubMenu = (parentIndex) => {
+    const childIndex = this.state.parents.indexOf(parentIndex);
+    const subMenu = document.getElementsByClassName('navburger__sub')[childIndex];
+    if (!subMenu.style.maxHeight || subMenu.style.maxHeight === '0px') {
+      subMenu.style.maxHeight = '100%';
+    } else {
+      subMenu.style.maxHeight = '0';
     }
-    let mainMenu = document.getElementsByClassName('navburger__list')[0];
-    mainMenu.style.visibility = 'visible';
   }
 
-  toggleSubMenuOn = (index) => {
-    let items = document.getElementsByClassName('navburger__list-item');
-    for(let i = 0; i < items.length; i++) {
-      items[i].style.position = 'absolute';
-      items[i].style.transform = 'translate(-100%)';
-    }
-    let subMenu = document.getElementsByClassName('navburger__sub')[this.state.parents[index]];
-    subMenu.style.visibility = 'visible';
-    let mainMenu = document.getElementsByClassName('navburger__list')[0];
-    mainMenu.style.visibility = 'hidden';
+  turnOffBodyScrollLock = () => {
+    document.body.style.overflowY = 'auto';
   }
 
   toggleBodyScrollLock = () => {
-    if (document.getElementById('menuCheckbox').checked) {
-      document.body.style.overflowY = 'hidden';
-    } else {
+    if (document.body.style.overflowY === 'hidden') {
       document.body.style.overflowY = 'auto';
+    } else {
+      document.body.style.overflowY = 'hidden';
     }
   }
 };
