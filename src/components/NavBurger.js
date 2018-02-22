@@ -80,9 +80,8 @@ export default class NavBurger extends React.Component {
   }
 
   turnOffBodyScrollLock = (link) => {
-    if (link !== window.location.pathname) {
-      document.body.style.overflowY = 'auto';
-    } else {
+    document.body.style.overflowY = 'auto';
+    if (link === window.location.pathname) {
       document.getElementById('menuCheckbox').checked = false;
     }
   }
