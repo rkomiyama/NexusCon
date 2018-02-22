@@ -44,7 +44,7 @@ export default class NavBurger extends React.Component {
                       {route.title}
                     </Link>
                     {route.children &&
-                    <ul className="navburger__sub navburger__sub--hide u-full-width">
+                    <ul className="navburger__sub u-full-width">
                       {route.children.map((childRoute, i) => {
                         return (
                           <li className="navburger__sub-item" key={i}>
