@@ -13,12 +13,12 @@
       "link": "#",
       "children": [
         {
-          "title": "Ayyy",
-          "link": "#"
+          "title": "Link 1",
+          "link": "/link1"
         },
         {
-          "title": "Yooo",
-          "link": "#"
+          "title": "Link 2",
+          "link": "/link2"
         }
       ]
     },
@@ -39,16 +39,16 @@
       "link": "#",
       "children": [
         {
-          "title": "Hey",
-          "link": "#"
+          "title": "Link 1",
+          "link": "/link1"
         },
         {
-          "title": "Sup",
-          "link": "#"
+          "title": "Link 2",
+          "link": "/link2"
         },
         {
-          "title": "Yo",
-          "link": "#"
+          "title": "Link 3",
+          "link": "/link3"
         }
       ]
     }
