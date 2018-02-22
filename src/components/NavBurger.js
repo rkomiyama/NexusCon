@@ -39,7 +39,7 @@ export default class NavBurger extends React.Component {
                   <li className="navburger__list-item u-full-width" key={idx}>
                     <Link
                       to={route.link}
-                      onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock()}}
+                      onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock(route.link)}}
                       className="navburger__list-link">
                       {route.title}
                     </Link>
@@ -50,7 +50,7 @@ export default class NavBurger extends React.Component {
                           <li className="navburger__sub-item" key={i}>
                             <Link
                               to={childRoute.link}
-                              onClick={this.turnOffBodyScrollLock}
+                              onClick={() => this.turnOffBodyScrollLock(childRoute.link)}
                               className="navburger__sub-link">
                               {childRoute.title}
                             </Link>
@@ -79,19 +79,20 @@ export default class NavBurger extends React.Component {
     }
   }
 
-  turnOffBodyScrollLock = () => {
-    const checked = document.getElementById('menuCheckbox').checked;
-    if (!checked) {
+  turnOffBodyScrollLock = (link) => {
+    if (link !== window.location.pathname) {
       document.body.style.overflowY = 'auto';
+    } else {
+      document.getElementById('menuCheckbox').checked = false;
     }
   }
 
   toggleBodyScrollLock = () => {
     const checked = document.getElementById('menuCheckbox').checked;
-    if (document.body.style.overflowY === 'hidden') {
-      document.body.style.overflowY = 'auto';
-    } else if (checked) {
+    if (checked) {
       document.body.style.overflowY = 'hidden';
+    } else if (document.body.style.overflowY === 'hidden') {
+      document.body.style.overflowY = 'auto';
     }
   }
 };
