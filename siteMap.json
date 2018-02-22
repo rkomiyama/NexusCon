@@ -19,6 +19,10 @@
         {
           "title": "Link 2",
           "link": "/link2"
+        },
+        {
+          "title": "Link 3",
+          "link": "/link3"
         }
       ]
     },
