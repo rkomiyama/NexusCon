@@ -10,10 +10,11 @@
 
 .navburger__list-wrapper {
   position: relative;
+  top: 1rem;
   left: -100%;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   overflow-y: scroll;
-  height: calc(100vh - 43px);
+  height: calc(100vh - 59px);
 }
 
 .navburger__list {
@@ -46,6 +47,7 @@
 .navburger__sub {
   margin: 0;
   height: 0px;
+  padding-left: 1rem;
   overflow-y: hidden;
   list-style-type: none;
   transform: scaleY(0);
