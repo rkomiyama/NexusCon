@@ -45,9 +45,30 @@
 
 .navburger__sub {
   margin: 0;
-  list-style-type: none;
-  max-height: 0;
+  height: 0px;
   overflow-y: hidden;
+  list-style-type: none;
+  transform: scaleY(0);
+  animation-name: expandSubMenu;
+  transform-origin: 0% 0%;
+  transition-duration: 0.2s;
+}
+
+@keyframes expandSubMenu {
+  0% {
+    height: 0px;
+    transform: scaleY(0);
+  }
+
+  50% {
+    height: auto;
+    transform: scaleY(0.5);
+  }
+
+  100% {
+    height: 100%;
+    transform: scaleY(1);
+  }
 }
 
 .navburger__sub-item {
