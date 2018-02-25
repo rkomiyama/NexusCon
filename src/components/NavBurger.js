@@ -72,10 +72,12 @@ export default class NavBurger extends React.Component {
   toggleSubMenu = (parentIndex) => {
     const childIndex = this.state.parents.indexOf(parentIndex);
     const subMenu = document.getElementsByClassName('navburger__sub')[childIndex];
-    if (!subMenu.style.maxHeight || subMenu.style.maxHeight === '0px') {
-      subMenu.style.maxHeight = '100%';
-    } else {
-      subMenu.style.maxHeight = '0';
+    if (!subMenu.style.height || subMenu.style.height === '0px' || subMenu.style.transform === 'scaleY(0)') {
+      subMenu.style.transform = 'scaleY(1)';
+      subMenu.style.height = 'auto';
+    } else if (subMenu.style.transform === 'scaleY(1)') {
+      subMenu.style.transform = 'scaleY(0)';
+      setTimeout(() => { subMenu.style.height = '0px' }, 200);
     }
   }
 
