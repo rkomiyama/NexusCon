@@ -7,7 +7,8 @@ export default class NavBurger extends React.Component {
     super(props);
 
     this.state = {
-      parents: []
+      parents: [],
+      checked: false
     };
   }
 
@@ -26,44 +27,41 @@ export default class NavBurger extends React.Component {
   render () {
     return (
       <nav className="navburger">
-        <div id="menuToggle">
-          <div className="navburger__list-header"></div>
-          <input id="menuCheckbox" type="checkbox" onClick={this.toggleBodyScrollLock} />
+        <div className="navburger__list-header"></div>
+        <div className={`navburger__icon ${this.state.checked ? 'open' : ''}`} onClick={() => this.toggleBodyScrollLock()}>
           <span></span>
-          <span></span>
-          <span></span>
-          <div className="navburger__list-wrapper u-full-width">
-            <ul className="navburger__list">
-              {siteMap.routes.map((route, idx) => {
-                return (
-                  <li className="navburger__list-item u-full-width" key={idx}>
-                    <Link
-                      to={route.link}
-                      onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock(route.link)}}
-                      className="navburger__list-link">
-                      {route.title}
-                    </Link>
-                    {route.children &&
-                    <ul className="navburger__sub u-full-width">
-                      {route.children.map((childRoute, i) => {
-                        return (
-                          <li className="navburger__sub-item" key={i}>
-                            <Link
-                              to={childRoute.link}
-                              onClick={() => this.turnOffBodyScrollLock(childRoute.link)}
-                              className="navburger__sub-link">
-                              {childRoute.title}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    }
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+        </div>
+        <div className="navburger__list-wrapper u-full-width">
+          <ul className="navburger__list">
+            {siteMap.routes.map((route, idx) => {
+              return (
+                <li className="navburger__list-item u-full-width" key={idx}>
+                  <Link
+                    to={route.link}
+                    onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock(route.link)}}
+                    className="navburger__list-link">
+                    {route.title}
+                  </Link>
+                  {route.children &&
+                  <ul className="navburger__sub u-full-width">
+                    {route.children.map((childRoute, i) => {
+                      return (
+                        <li className="navburger__sub-item" key={i}>
+                          <Link
+                            to={childRoute.link}
+                            onClick={() => this.turnOffBodyScrollLock(childRoute.link)}
+                            className="navburger__sub-link">
+                            {childRoute.title}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  }
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </nav>
     );
@@ -84,16 +82,17 @@ export default class NavBurger extends React.Component {
   turnOffBodyScrollLock = (link) => {
     document.body.style.overflowY = 'auto';
     if (link === window.location.pathname) {
-      document.getElementById('menuCheckbox').checked = false;
+      this.setState({ checked: false });
     }
   }
 
   toggleBodyScrollLock = () => {
-    const checked = document.getElementById('menuCheckbox').checked;
-    if (checked) {
-      document.body.style.overflowY = 'hidden';
-    } else if (document.body.style.overflowY === 'hidden') {
+    if (this.state.checked) {
       document.body.style.overflowY = 'auto';
+      this.setState({ checked: false });
+    } else {
+      document.body.style.overflowY = 'hidden';
+      this.setState({ checked: true });
     }
   }
 };

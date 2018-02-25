@@ -10,11 +10,11 @@
 
 .navburger__list-wrapper {
   position: relative;
-  top: 1rem;
+  top: -13px;
   left: -100%;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   overflow-y: scroll;
-  height: calc(100vh - 59px);
+  height: calc(100vh - 43px);
 }
 
 .navburger__list {
@@ -85,73 +85,67 @@
   white-space: nowrap;
 }
 
-#menuToggle {
+.navburger__icon {
   position: relative;
   display: block;
-
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-#menuToggle input {
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 32px;
-  top: -6px;
-  left: 12px;
-
+  left: 1rem;
+  top: -1rem;
+  width: 2.5em;
+  height: 2.5em;
   cursor: pointer;
 
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  &:hover span {
+    background: #bbb;
 
-  -webkit-touch-callout: none;
+    &:before, &:after { background: #bbb; }
+  }
 }
 
-#menuToggle span {
-  position: relative;
-  left: 22px;
+.navburger__icon > span {
+  position: absolute;
+  top: 50%;
   display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-
-  background: #cdcdcd;
+  width: 100%;
+  height: 0.25em;
+  background-color: #bbb;
   border-radius: 3px;
-
-  z-index: 1;
-
-  transform-origin: 4px 0px;
-
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+  transition: transform 0.3s ease;
 }
 
-#menuToggle span:first-child {
-  transform-origin: 0% 0%;
+.navburger__icon > span:before,
+.navburger__icon > span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #bbb;
+  border-radius: 3px;
+  transition: transform 0.3s ease;
 }
 
-#menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
+.navburger__icon > span:before {
+  transform: translateY(-0.75em);
 }
 
-#menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+.navburger__icon > span:after {
+  transform: translateY(0.75em);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+.navburger__icon.open {
+  -webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2) {
-  transform: rotate(-45deg) translate(0, -1px);
+.navburger__icon.open > span:before {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
 }
 
-#menuToggle input:checked ~ .navburger__list-wrapper {
+.navburger__icon.open > span:after {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+.navburger__icon.open ~ .navburger__list-wrapper {
   transform: translate(100%);
 }
