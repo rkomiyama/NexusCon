@@ -32,15 +32,19 @@ export default class NavBurger extends React.Component {
   render () {
     return (
       <nav className="navburger">
-        <div className="navburger__list-header"></div>
         <div
-          className={`navburger__icon ${this.state.checked && 'open'}`}
+          className="navburger__list-header"
+          ref={(node) => this.burgerHeaderRef = node}
+        >
+        </div>
+        <div
+          className={`navburger__icon ${this.state.checked ? 'open' : ''}`}
           onClick={() => this.toggleBodyScrollLock()}
           ref={(node) => this.burgerIconRef = node}
         >
           <span></span>
         </div>
-        <div className={`${this.state.checked && 'navburger__overlay'}`}></div>
+        <div className={`${this.state.checked ? 'navburger__overlay' : ''}`}></div>
         <div className="navburger__list-wrapper" ref={(node) => this.wrapperRef = node}>
           <ul className="navburger__list">
             {siteMap.routes.map((route, idx) => {
@@ -49,7 +53,8 @@ export default class NavBurger extends React.Component {
                   <Link
                     to={route.link}
                     onClick={() => {route.children ? this.toggleSubMenu(idx) : this.turnOffBodyScrollLock(route.link)}}
-                    className="navburger__list-link">
+                    className="navburger__list-link"
+                  >
                     {route.title}
                   </Link>
                   {route.children &&
@@ -60,7 +65,8 @@ export default class NavBurger extends React.Component {
                           <Link
                             to={childRoute.link}
                             onClick={() => this.turnOffBodyScrollLock(childRoute.link)}
-                            className="navburger__sub-link">
+                            className="navburger__sub-link"
+                          >
                             {childRoute.title}
                           </Link>
                         </li>
@@ -81,7 +87,8 @@ export default class NavBurger extends React.Component {
     // allows toggleBodyScrollLock when clicking outside of wrapper *and* burger icon
     if (this.state.checked &&
       ((this.wrapperRef && !this.wrapperRef.contains(event.target)) &&
-      (this.burgerIconRef && !this.burgerIconRef.contains(event.target)))) {
+      (this.burgerIconRef && !this.burgerIconRef.contains(event.target)) &&
+      (this.burgerHeaderRef && !this.burgerHeaderRef.contains(event.target)))) {
       this.toggleBodyScrollLock();
     }
   }

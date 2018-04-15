@@ -21,10 +21,11 @@
 
 .navburger__list-wrapper {
   position: relative;
-  top: -13px;
+  top: -56px;
   left: -80%;
   width: 80%;
   height: calc(100vh - 43px);
+  padding-top: 43px;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   overflow-y: scroll;
   background-color: #343334;
@@ -49,11 +50,11 @@
 
 .navburger__list-header {
   position: absolute;
-  top: -2rem;
+  top: 0;
   left: 0;
   z-index: 1;
-  width: 100%;
-  height: 75px;
+  width: 70px;
+  height: 45px;
   background-color: #343334;
 }
 
