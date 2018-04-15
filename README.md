@@ -1,4 +1,4 @@
-# multicon
+# NexusCon
 
 ## Usage
 
