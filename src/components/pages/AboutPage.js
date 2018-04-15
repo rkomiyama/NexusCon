@@ -12,7 +12,7 @@ const AboutPage = () => (
     </Media>
     <section className="aboutPage-content container">
       <p>
-        Stuff and such for what MultiCon is all about.
+        Stuff and such for what NexusCon is all about.
       </p>
     </section>
   </div>
